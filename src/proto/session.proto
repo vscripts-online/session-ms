@@ -16,4 +16,5 @@ message Session {
 service SessionService {
   rpc NewSession (SessionUser) returns (Session) {}
   rpc GetSession (Session) returns (BoolValue) {}
+  rpc DelSession (SessionUser) returns (BoolValue) {}
 }

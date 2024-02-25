@@ -8,15 +8,21 @@ import type { Session__Output } from './pb/session/Session';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @GrpcMethod('SessionService', 'NewSession')
+  @GrpcMethod('SessionService')
   NewSession(data: SessionUser__Output) {
     const { id } = data;
     return this.appService.NewSession(id);
   }
 
-  @GrpcMethod('SessionService', 'GetSession')
+  @GrpcMethod('SessionService')
   GetSession(data: Session__Output) {
     const { id, session } = data;
     return this.appService.GetSession(id, session);
+  }
+
+  @GrpcMethod('SessionService')
+  DelSession(data: SessionUser__Output) {
+    const { id } = data;
+    return this.appService.DelSession(id);
   }
 }

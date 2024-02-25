@@ -23,4 +23,9 @@ export class AppService {
     const keys = await this.redisClient.LRANGE('session:' + id, 0, 100);
     return { value: keys.includes(session) };
   }
+
+  async DelSession(id: number): Promise<BoolValue__Output> {
+    const result = await this.redisClient.DEL('session:' + id + '');
+    return { value: Boolean(result) };
+  }
 }

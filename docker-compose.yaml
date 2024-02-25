@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  session_ms:
+    restart: always
+    build:
+      context: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 20000:20000
+    volumes:
+      - session_ms_volume:/home/node/app
+    depends_on:
+      - session_ms_redis
+
+  session_ms_redis:
+    image: redis/redis-stack-server:latest
+    restart: always
+    ports:
+      - 10000:6379
+    volumes:
+      - session_ms_redis_volume:/data:rw
+    environment:
+      - REDIS_ARGS=--save 10 1 --appendonly yes --requirepass redis_password --user redis_username on >redis_password ~* allcommands --user default off nopass nocommands
+
+volumes:
+  session_ms_volume:
+  session_ms_redis_volume:
