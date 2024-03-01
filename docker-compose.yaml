@@ -8,9 +8,9 @@ services:
     environment:
       NODE_ENV: production
       REDIS_URI: redis://redis_username:redis_password@host.docker.internal:10000
-      PORT: 20000
+      PORT: 3000
     ports:
-      - 20000:20000
+      - 20000:3000
     volumes:
       - session_ms_volume:/home/node/app
     depends_on:
