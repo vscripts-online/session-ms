@@ -19,7 +19,7 @@ async function bootstrap() {
       transport: Transport.GRPC,
       options: {
         package: 'session',
-        protoPath: path.join(__dirname, 'proto/session.proto'),
+        protoPath: path.join(__dirname, '../proto/session.proto'),
         url: '0.0.0.0:' + PORT,
       },
     },

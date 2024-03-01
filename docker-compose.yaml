@@ -2,6 +2,7 @@ version: '3'
 
 services:
   session_ms:
+    container_name: session_ms
     restart: always
     build:
       context: .
@@ -11,10 +12,10 @@ services:
       PORT: 3000
     ports:
       - 20000:3000
-    volumes:
-      - session_ms_volume:/home/node/app
     depends_on:
       - session_ms_redis
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
 
   session_ms_redis:
     image: redis/redis-stack-server:latest
@@ -27,5 +28,4 @@ services:
       - REDIS_ARGS=--save 10 1 --appendonly yes --requirepass redis_password --user redis_username on >redis_password ~* allcommands --user default off nopass nocommands
 
 volumes:
-  session_ms_volume:
   session_ms_redis_volume:
