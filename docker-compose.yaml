@@ -7,6 +7,8 @@ services:
       context: .
     environment:
       NODE_ENV: production
+      REDIS_URI: redis://redis_username:redis_password@host.docker.internal:10000
+      PORT: 20000
     ports:
       - 20000:20000
     volumes:

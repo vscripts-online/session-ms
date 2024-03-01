@@ -2,8 +2,8 @@ import * as crypto from 'node:crypto';
 import { Inject, Injectable, forwardRef } from '@nestjs/common';
 import { REDIS_CLIENT } from './database';
 import { RedisClientType } from 'redis';
-import type { Session__Output } from './pb/session/Session';
-import { BoolValue__Output } from './pb/google/protobuf/BoolValue';
+import type { Session__Output } from 'pb/session/Session';
+import { BoolValue__Output } from 'pb/google/protobuf/BoolValue';
 
 @Injectable()
 export class AppService {

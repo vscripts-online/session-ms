@@ -1,8 +1,8 @@
 import { Controller } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
 import { AppService } from './app.service';
-import type { SessionUser__Output } from './pb/session/SessionUser';
-import type { Session__Output } from './pb/session/Session';
+import type { SessionUser__Output } from 'pb/session/SessionUser';
+import type { Session__Output } from 'pb/session/Session';
 
 @Controller()
 export class AppController {
